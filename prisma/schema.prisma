@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator seed {
+  provider = "ts-node"
+  run      = "ts-node prisma/seed.ts"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id          String        @id @default(cuid())
+  name        String?
+  email       String        @unique
+  password    String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  leaderboard Leaderboard[] // Define the relation back to Leaderboard
+}
+
+model Leaderboard {
+  id     String @id @default(cuid())
+  score  Int
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}

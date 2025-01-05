@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box;
+  width: 100%;
+  background-color: black; /* Ensure black background */
+  color: white; /* Set default text color to white */
+  font-family: "Satoshi", sans-serif; /* Set default font to Satoshi */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+input,
+textarea {
+  background-color: black; /* Black background for input */
+  color: white; /* White text for input */
+  border: 1px solid white; /* Add white border */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #888; /* Light gray placeholder text */
+}
+
+
